@@ -1,5 +1,5 @@
 from operator import is_not
-
+from PyQt6.QtWidgets import QMessageBox
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
@@ -236,9 +236,18 @@ class Ui_MainWindow(object):
             self.label.setText(self.label.text() + number)
 
     def results(self):
-        res = eval(self.label.text())
-        self.label.setText(str(res))
-        self.is_equal = True
+        if not self.is_equal:
+            res = eval(self.label.text())
+            self.label.setText(str(res))
+            self.is_equal = True
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("Error")
+            error.setText("Now you can't do this")
+            error.setIcon(QMessageBox.Icon.Warning)
+            error.setStandardButtons(QMessageBox.Icon.Ok|QMessageBox.Icon.NoIcon)
+            error.exec()
+
 
 if __name__ == "__main__":
     import sys
@@ -248,5 +257,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
-
-
