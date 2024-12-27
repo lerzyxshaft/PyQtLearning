@@ -226,6 +226,7 @@ class Ui_MainWindow(object):
         self.label_plus.clicked.connect(lambda: self.write_number(self.label_plus.text()))
         self.label_minus.clicked.connect(lambda: self.write_number(self.label_minus.text()))
         self.label_mltpl.clicked.connect(lambda: self.write_number(self.label_mltpl.text()))
+        self.label_prcnt.clicked.connect(lambda: self.write_number(self.label_prcnt.text()))
         self.label_AC.clicked.connect(lambda: self.clear())
         self.label_result.clicked.connect(self.results)
 
@@ -250,8 +251,13 @@ class Ui_MainWindow(object):
             error.exec()
 
     def clear(self):
-        self.label.setText("0")  # Reset the display to 0 (or an empty string if preferred)
-        self.is_equal = False  # Reset the equal state
+        self.label.setText("0")
+        self.is_equal = False
+
+    def procent(self):
+        if self.label_prcnt.clicked == True:
+            self.label.setText.append("%")
+
 
 
 if __name__ == "__main__":
