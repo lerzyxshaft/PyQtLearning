@@ -254,11 +254,6 @@ class Ui_MainWindow(object):
         self.label.setText("0")
         self.is_equal = False
 
-    def procent(self):
-        if self.label_prcnt.clicked == True:
-            self.label.setText.append("%")
-
-
 
 if __name__ == "__main__":
     import sys
